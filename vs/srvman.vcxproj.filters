@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{63a7720d-1881-4a0a-886e-716ca89d549f}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{d5737bfc-3af5-49d7-bba4-844e337a93eb}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{fa97122a-b5ff-4345-82b2-6cf837874412}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;manifest</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\cmdline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MainDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PropertiesDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\runassrv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\srvman.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\cmdline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MainDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PropertiesDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\runassrv.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\src\res\auto.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\src\res\boot.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\src\res\disabled.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\src\res\driver.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\src\res\fsdriver.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\src\res\green.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\src\res\grey.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\src\res\icon1.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\src\res\interserv.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\src\res\manual.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\src\res\multiserv.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\src\res\red.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\src\res\service.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\src\res\srvman.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\src\res\system.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\src\res\yellow.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\src\srvman.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
