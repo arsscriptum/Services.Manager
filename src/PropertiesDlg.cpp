@@ -391,7 +391,7 @@ LRESULT CPropertiesDlg::OnServiceTypeChanged( WORD /*wNotifyCode*/, WORD /*wID*/
 	return 0;
 }
 LRESULT CPropertiesDlg::OnBnClickedBrowse(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
-{
+{/*
 	TCHAR tsz[2048] = {0,};
 	TCHAR tszBinary[MAX_PATH] = {0,};
 	GetDlgItemText(IDC_WIN32PATH, tsz, __countof(tsz));
@@ -435,7 +435,7 @@ LRESULT CPropertiesDlg::OnBnClickedBrowse(WORD /*wNotifyCode*/, WORD /*wID*/, HW
 	}
 
 	OnWin32PathChanged(0, 0, 0, *(BOOL *)NULL);
-
+	*/
 	return 0;
 }
 
@@ -533,6 +533,7 @@ LRESULT CPropertiesDlg::OnParamChanged(WORD /*wNotifyCode*/, WORD wID, HWND /*hW
 
 unsigned CPropertiesDlg::GetNonServiceProcessCommandLine( LPCTSTR lpSrvManCommandLine )
 {
+	/*
 	if (!lpSrvManCommandLine || !lpSrvManCommandLine[0])
 		return 0;
 	int argc = 0;
@@ -549,4 +550,6 @@ unsigned CPropertiesDlg::GetNonServiceProcessCommandLine( LPCTSTR lpSrvManComman
 	}
 	LocalFree(argv);
 	return off;
+	*/
+	return 0;
 }

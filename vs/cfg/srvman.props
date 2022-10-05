@@ -8,11 +8,10 @@
      <TempRoot>$(ProjectDir)</TempRoot>
      <UsingQt5>0</UsingQt5>
      <UsingWinsock>0</UsingWinsock>
-     <UsingOpenSSL>1</UsingOpenSSL>
-     <UsingJSMNLib>1</UsingJSMNLib>
-     <UsingHTTPLib>1</UsingHTTPLib>
+     <UsingBazisLib>1</UsingBazisLib>
      <SolutionRootDirectory>$(ProjectDir)..\</SolutionRootDirectory>
-     <ExternalDirectory>$(SolutionRootDirectory)\external</ExternalDirectory>
+     <ExternalDirectory>$(SolutionRootDirectory)external</ExternalDirectory>
+     <BazisLibDirectory>$(BZSLIB_PATH)</BazisLibDirectory>
   </PropertyGroup> 
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
     <CharacterSet>NotSet</CharacterSet>
@@ -40,32 +39,12 @@
   </PropertyGroup>
 
 
-  <PropertyGroup Label="OpenSSLConfig" Condition="'$(UsingOpenSSL)'=='1'">
-    <OpenSSL_RootDirectory>$(ExternalDirectory)\openssl</OpenSSL_RootDirectory>
-    <OpenSSL_Include_Directory>$(OpenSSL_RootDirectory)\include</OpenSSL_Include_Directory>
-    <OpenSSL_Library_Directory>$(OpenSSL_RootDirectory)\lib</OpenSSL_Library_Directory>
-    <OpenSSL_Binary_Directory>$(OpenSSL_RootDirectory)\bin</OpenSSL_Binary_Directory>
-    <OpenSSL_Defines>CPPHTTPLIB_OPENSSL_SUPPORT</OpenSSL_Defines>
-
-
-
-
-    <OpenSSL_Lib_Static>libssl_static.lib</OpenSSL_Lib_Static>
-    <OpenSSL_Lib>openssl.lib</OpenSSL_Lib>
-    <LibCrypto_Lib_Static>libcrypto_static.lib</LibCrypto_Lib_Static>
-    <LibCrypto_Lib>libcrypto.lib</LibCrypto_Lib>
+  <PropertyGroup Label="UsingBazisLib" Condition="'$(UsingBazisLib)'=='1'">
+    <BazisLib_Includes>$(BazisLibDirectory)</BazisLib_Includes>
+    <BazisLib_Defines>USING_BAZISLIBS</BazisLib_Defines>
+    <BazisLib_Lib_Static>bzscore.lib;bzshlp.lib</BazisLib_Lib_Static>
+    <BazisLib_Library_Directory>$(BazisLibDirectory)\bin\x64</BazisLib_Library_Directory>
   </PropertyGroup>
-
-  <PropertyGroup Label="JSMNLibConfig" Condition="'$(UsingJSMNLib)'=='1'">
-    <JSMNLIB_RootDirectory>$(ExternalDirectory)\jsmn</JSMNLIB_RootDirectory>
-    <JSMN_Defines></JSMN_Defines>
-  </PropertyGroup>
-
-  <PropertyGroup Label="HTTPLibConfig" Condition="'$(UsingHTTPLib)'=='1'">
-    <HTTPLIB_RootDirectory>$(ExternalDirectory)\cpp-httplib</HTTPLIB_RootDirectory>
-    <HTTPLib_Defines>USING_HTTPLIB</HTTPLib_Defines>
-  </PropertyGroup>
-
 
 
   <ItemDefinitionGroup>
@@ -100,8 +79,8 @@
     </QtRcc>
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>$(OpenSSL_Include_Directory);$(HTTPLIB_RootDirectory);$(JSMNLIB_RootDirectory);$(ProjectRoot)src;$(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>CPPHTTPLIB_OPENSSL_SUPPORT;JSMN_STATIC;CCC_STATIC_LINKING;_CRT_SECURE_NO_WARNINGS;CC_WINAPP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(BazisLib_Includes);$(ProjectRoot)src;$(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>$(BazisLib_Defines);CCC_STATIC_LINKING;_CRT_SECURE_NO_WARNINGS;CC_WINAPP;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </ClCompile>
     <!-- 
@@ -109,8 +88,8 @@
       -->
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>$(OpenSSL_Library_Directory);$(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(OpenSSL_Lib_Static);$(LibCrypto_Lib_Static);$(WinsockLib);shlwapi.lib;netapi32.lib;user32.lib;comctl32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(BazisLib_Library_Directory);$(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(BazisLib_Lib_Static);$(WinsockLib);shlwapi.lib;netapi32.lib;user32.lib;comctl32.lib</AdditionalDependencies>
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
       <PreprocessorDefinitions>$(JSMN_Defines);$(HTTPLib_Defines);$(OpenSSL_Defines);%(PreprocessorDefinitions)</PreprocessorDefinitions>
       

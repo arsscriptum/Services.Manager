@@ -4,8 +4,8 @@
 
 #pragma once
 
-#include <bzswin/registry.h>
-#include <bzswin/services.h>
+#include <bzscore/Win32/registry.h>
+#include <bzshlp/Win32/services.h>
 
 class CMainDlg : public CDialogImpl<CMainDlg>, public CDialogResize<CMainDlg>
 {

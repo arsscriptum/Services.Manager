@@ -9,7 +9,8 @@
 #include "cmdline.h"
 #include "PropertiesDlg.h"
 
-#include <bzscmn/file.h>
+#include <bzscore\Win32\file.h>
+
 
 #if !defined(BAZISLIB_VERSION) || (BAZISLIB_VERSION < 0x214)
 #error BazisLib >= 2.1.4 is required to build this application
@@ -494,7 +495,7 @@ LRESULT CMainDlg::OnBnClickedProperties(WORD /*wNotifyCode*/, WORD /*wID*/, HWND
 	bool ReadOnly = false;
 	String srvName;
 	ActionStatus st = OpenSelectedService(&srv, SERVICE_ALL_ACCESS, &srvName);
-	if (st.GetErrorCode() == BazisLib::AccessDeined)
+	if (st.GetErrorCode() == BazisLib::AccessDenied)
 		st = OpenSelectedService(&srv, SERVICE_QUERY_CONFIG | SERVICE_QUERY_STATUS), ReadOnly = true;
 	if (!st.Successful())
 	{

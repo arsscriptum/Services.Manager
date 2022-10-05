@@ -1,7 +1,9 @@
 #include "stdafx.h"
 #include "cmdline.h"
-#include <bzscmn/string.h>
-#include <bzswin/services.h>
+#include <bzscore/string.h>
+#include <bzshlp/Win32/services.h>
+#include <bzscore\Win32\file.h>
+
 
 const char szCommandLineHelpMsg[] = "Command-line options:\r\n\
 srvman add <binary file> [service name] [display name]\r\n\
@@ -125,6 +127,8 @@ String BuildCommandLineForAppAsService(LPCTSTR lpOriginalCmdLine, LPCTSTR lpServ
 
 ActionStatus CmdlInstallService(HANDLE hStdOut, LPCTSTR lpBinPath, LPCTSTR lpSvcName, LPCTSTR lpDisplayName, DWORD dwType, DWORD dwStart, bool Overwrite)
 {
+	return MAKE_STATUS(InvalidParameter);
+	/*
 	ServiceControlManager mgr(SC_MANAGER_CREATE_SERVICE);
 	if (!lpBinPath)
 		return MAKE_STATUS(InvalidParameter);
@@ -164,6 +168,7 @@ ActionStatus CmdlInstallService(HANDLE hStdOut, LPCTSTR lpBinPath, LPCTSTR lpSvc
 		st = svc.ChangeConfig(dwType, dwStart, SERVICE_NO_CHANGE, lpBinPath);
 	}
 	return st;
+	*/
 }
 
 static DWORD SrvTypeFromString(const TCHAR *pStr, DWORD dwDefType, bool Interactive)
@@ -284,7 +289,8 @@ ActionStatus CmdlRestartService(HANDLE hStdOut, LPCTSTR lpSvcName, unsigned Dela
 
 ActionStatus CmdlRunBinary(HANDLE hStdOut, LPCTSTR lpBinary, LPCTSTR lpSvcName, bool Copy, bool Overwrite, unsigned StopAfter)
 {
-	if (!lpBinary)
+	return MAKE_STATUS(InvalidParameter);
+	/*if (!lpBinary)
 		return MAKE_STATUS(InvalidParameter);
 	LPCTSTR lpTargetBinary = lpBinary;
 	FilePath fp(_T(""));
@@ -333,12 +339,12 @@ ActionStatus CmdlRunBinary(HANDLE hStdOut, LPCTSTR lpBinary, LPCTSTR lpSvcName, 
 		return MAKE_STATUS(Success);
 
 	WaitIfNeeded(hStdOut, StopAfter);
-	return CmdlControlService(hStdOut, lpSvcName, SERVICE_CONTROL_STOP, SERVICE_STOP, 0, false);
+	return CmdlControlService(hStdOut, lpSvcName, SERVICE_CONTROL_STOP, SERVICE_STOP, 0, false);*/
 }
 
 int ConsoleMain( int argc, LPWSTR *pArgv, bool ConsoleExisted )
 {
-	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	/*HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
 	CommandLineArgContainer cmdArgs(argc, pArgv);
 	
 	ActionStatus st;
@@ -410,6 +416,6 @@ int ConsoleMain( int argc, LPWSTR *pArgv, bool ConsoleExisted )
 		char ch = 0;
 		ConsolePrintA(hStdOut, szPressAnyKey);
 		ReadFile(GetStdHandle(STD_INPUT_HANDLE), &ch, 1, &dwDone, NULL);
-	}
+	}*/
 	return 0;
 }

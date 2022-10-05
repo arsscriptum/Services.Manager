@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "runassrv.h"
-#include <bzswin/services.h>
+#include <bzshlp/Win32/services.h>
 
 using namespace BazisLib::Win32;
 
