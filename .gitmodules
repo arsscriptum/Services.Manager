@@ -1,0 +1,3 @@
+[submodule "ext/BazisLib"]
+	path = ext/BazisLib
+	url = https://github.com/arsscriptum/BazisLib.git
