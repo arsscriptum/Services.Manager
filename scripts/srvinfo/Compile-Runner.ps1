@@ -8,9 +8,9 @@
 [CmdletBinding(SupportsShouldProcess)]
 param (
         [Parameter(Mandatory = $false)]
-        [string]$ScriptPath="$PSScriptRoot\compile.ps1",
+        [string]$ScriptPath="$PSScriptRoot\Get-ServicePermissions.ps1",
         [Parameter(Mandatory = $false)]
-        [string]$OutputPath="$PSScriptRoot\compile.exe",
+        [string]$OutputPath="$PSScriptRoot\Get-ServicePermissions.exe",
         [Parameter(Mandatory = $false)]
         [switch]$Deploy,
         [Parameter(Mandatory = $false)]
