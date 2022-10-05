@@ -13,13 +13,11 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Russian resources
+// Russe (Russe) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
-#ifdef _WIN32
 LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
 #pragma code_page(1251)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -29,26 +27,40 @@ LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDI_DRIVER              ICON                    "res\\driver.ico"
+
 IDI_FSDRIVER            ICON                    "res\\fsdriver.ico"
+
 IDI_GREEN               ICON                    "res\\green.ico"
+
 IDI_GREY                ICON                    "res\\grey.ico"
+
 IDI_MULTISERV           ICON                    "res\\multiserv.ico"
+
 IDI_RED                 ICON                    "res\\red.ico"
+
 IDI_SERV                ICON                    "res\\service.ico"
+
 IDI_YELLOW              ICON                    "res\\yellow.ico"
+
 IDI_INTERACTIVE         ICON                    "res\\interserv.ico"
+
 IDI_SYSTEM              ICON                    "res\\system.ico"
+
 IDI_AUTO                ICON                    "res\\auto.ico"
+
 IDI_BOOT                ICON                    "res\\boot.ico"
+
 IDI_DISABLED            ICON                    "res\\disabled.ico"
+
 IDI_MANUAL              ICON                    "res\\manual.ico"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // Menu
 //
 
-IDR_MENU1 MENU 
+IDR_MENU1 MENU
 BEGIN
     POPUP "&File"
     BEGIN
@@ -92,18 +104,16 @@ BEGIN
     END
 END
 
-#endif    // Russian resources
+#endif    // Russe (Russe) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// Anglais (États-Unis) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
-#ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -113,6 +123,7 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDR_MAINFRAME           ICON                    "res\\srvman.ico"
+
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -170,36 +181,38 @@ BEGIN
     PUSHBUTTON      "Exit",IDC_EXIT,354,201,163,14
 END
 
-IDD_SERVICEPROPS DIALOGEX 0, 0, 344, 276
+IDD_SERVICEPROPS DIALOGEX 0, 0, 345, 310
 STYLE DS_SETFONT | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
 CAPTION "Service properties"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,7,255,164,14
-    PUSHBUTTON      "Cancel",IDCANCEL,173,255,164,14
+    DEFPUSHBUTTON   "OK",IDOK,7,289,164,14
+    PUSHBUTTON      "Cancel",IDCANCEL,174,289,164,14
     RTEXT           "Internal service name:",IDC_STATIC,7,9,83,8
-    EDITTEXT        IDC_INTERNALNAME,95,7,242,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_INTERNALNAME,96,7,242,14,ES_AUTOHSCROLL
     RTEXT           "User-visible name:",IDC_STATIC,7,25,83,8
-    EDITTEXT        IDC_VISIBLENAME,95,24,242,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_VISIBLENAME,96,24,242,14,ES_AUTOHSCROLL
     RTEXT           "Binary file path (Win32):",IDC_STATIC,7,41,83,8
     EDITTEXT        IDC_WIN32PATH,95,40,212,14,ES_AUTOHSCROLL
     RTEXT           "Binary path (raw):",IDC_STATIC,7,57,83,8
-    EDITTEXT        IDC_TRANSLATEDPATH,95,56,242,33,ES_MULTILINE | ES_AUTOVSCROLL
-    PUSHBUTTON      "???",IDC_PROPERTIES,323,40,14,14
+    EDITTEXT        IDC_TRANSLATEDPATH,96,56,242,33,ES_MULTILINE | ES_AUTOVSCROLL
+    PUSHBUTTON      "???",IDC_PROPERTIES,324,40,14,14
     CONTROL         "",IDC_SERVICETYPE,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,95,92,160,210
     RTEXT           "Service type:",IDC_STATIC,7,94,83,8
-    CONTROL         "",IDC_STARTMODE,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,95,108,242,210
+    CONTROL         "",IDC_STARTMODE,"ComboBoxEx32",CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP,96,108,242,210
     RTEXT           "Start mode:",IDC_STATIC,7,111,83,8
-    CONTROL         "Interactive service",IDC_INTERACTIVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,261,94,76,10
+    CONTROL         "Interactive service",IDC_INTERACTIVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,262,94,76,10
     RTEXT           "Load order group:",IDC_STATIC,7,127,83,8
-    EDITTEXT        IDC_LOADGROUP,95,124,242,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LOADGROUP,96,124,242,14,ES_AUTOHSCROLL
     RTEXT           "Logon account:",IDC_STATIC,7,142,83,8
-    EDITTEXT        IDC_LOGIN,95,140,242,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LOGIN,96,140,242,14,ES_AUTOHSCROLL
     RTEXT           "Logon account password:",IDC_STATIC,7,158,83,8
-    EDITTEXT        IDC_PASSWORD,95,156,242,14,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSWORD,96,156,242,14,ES_PASSWORD | ES_AUTOHSCROLL
     PUSHBUTTON      "...",IDC_BROWSE,308,40,14,14
-    LTEXT           "Service description:",IDC_STATIC,10,174,83,8
-    EDITTEXT        IDC_DESCRIPTION,7,185,330,67,ES_MULTILINE | ES_AUTOVSCROLL
+    LTEXT           "Service description:",IDC_STATIC,10,209,83,8
+    EDITTEXT        IDC_DESCRIPTION,7,220,331,67,ES_MULTILINE | ES_AUTOVSCROLL
+    EDITTEXT        IDC_SRVPERMISSIONS,96,176,242,34,ES_MULTILINE | ES_AUTOVSCROLL
+    RTEXT           "Effective permissions:",IDC_STATIC,7,177,83,8
 END
 
 
@@ -209,7 +222,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_ABOUTBOX, DIALOG
     BEGIN
@@ -230,9 +243,9 @@ BEGIN
     IDD_SERVICEPROPS, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 337
+        RIGHTMARGIN, 338
         TOPMARGIN, 7
-        BOTTOMMARGIN, 269
+        BOTTOMMARGIN, 303
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -243,7 +256,7 @@ END
 // Accelerator
 //
 
-IDR_MAINFRAME ACCELERATORS 
+IDR_MAINFRAME ACCELERATORS
 BEGIN
     "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
     "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
@@ -304,15 +317,26 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_SERVICEPROPS AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDR_MAINFRAME           "srvman"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_FILE_NEW             "Create a new document\nNew"
     ID_FILE_OPEN            "Open an existing document\nOpen"
@@ -325,19 +349,19 @@ BEGIN
     ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
     ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
     ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_WINDOW_NEW           "Open another window for the active document\nNew Window"
     ID_WINDOW_ARRANGE       "Arrange icons at the bottom of the window\nArrange Icons"
@@ -347,7 +371,7 @@ BEGIN
     ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ID_EDIT_CLEAR           "Erase the selection\nErase"
     ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
@@ -362,7 +386,7 @@ BEGIN
     ID_EDIT_REDO            "Redo the previously undone action\nRedo"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ATL_IDS_SCSIZE          "Change the window size"
     ATL_IDS_SCMOVE          "Change the window position"
@@ -373,24 +397,24 @@ BEGIN
     ATL_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ATL_IDS_SCRESTORE       "Restore the window to normal size"
     ATL_IDS_SCTASKLIST      "Activate Task List"
     ATL_IDS_MDICHILD        "Activate this window"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ATL_IDS_IDLEMESSAGE     "Ready"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     ATL_IDS_MRU_FILE        "Open this document"
 END
 
-#endif    // English (U.S.) resources
+#endif    // Anglais (États-Unis) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

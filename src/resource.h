@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ generated include file.
-// Used by srvman.rc
+// fichier Include Microsoft Visual C++.
+// Utilisé par srvman.rc
 //
 #define IDD_ABOUTBOX                    100
 #define IDR_MAINFRAME                   128
@@ -42,6 +42,8 @@
 #define IDC_PASSWORD                    1018
 #define IDC_BROWSE                      1019
 #define IDC_DESCRIPTION                 1020
+#define IDC_TRANSLATEDPATH2             1021
+#define IDC_SRVPERMISSIONS              1021
 #define ID_FILE_EXIT                    32775
 #define ID_SERVICE_START                32776
 #define ID_SERVICE_STOP                 32777
@@ -76,7 +78,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        218
+#define _APS_NEXT_RESOURCE_VALUE        219
 #define _APS_NEXT_COMMAND_VALUE         32804
 #define _APS_NEXT_CONTROL_VALUE         1017
 #define _APS_NEXT_SYMED_VALUE           101
