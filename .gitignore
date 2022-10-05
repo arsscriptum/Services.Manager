@@ -88,7 +88,7 @@ srvctrl.sln.metaproj.tmp
 # Executables
 *.out
 *.app
-*.exe
+
 tmp*.bat
 __*.bat
 
