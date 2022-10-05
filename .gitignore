@@ -19,7 +19,8 @@ ipch/**
 
 scripts/test
 scripts/test/**
-
+vs/x64
+vs/x64/**
 tools/bin
 tools/bin/**
 tools/console-controller/vs/___temp_compilation_files/**
