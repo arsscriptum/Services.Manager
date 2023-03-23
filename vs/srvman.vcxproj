@@ -24,6 +24,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="$(ProjectDir)cfg\srvman.props" Label="ProjectConfig" />
+  <Import Project="$(ProjectDir)cfg\dejainsight.props" Label="ProjectConfig" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v142</PlatformToolset>
@@ -190,7 +191,7 @@
       <TargetMachine>MachineX64</TargetMachine>
       <EntryPointSymbol>
       </EntryPointSymbol>
-      <AdditionalLibraryDirectories>$(BazisLib_Library_Directory)\Debug (Win32);$(BazisLib_Library_Directory)\DEBUG;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(BazisLib_Library_Directory)\Debug (Win32);$(BazisLib_Library_Directory)\DEBUG;$(VC_LibraryPath_ATL_x64);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -223,7 +224,7 @@
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX64</TargetMachine>
       <EntryPointSymbol />
-      <AdditionalLibraryDirectories>$(BazisLib_Library_Directory)\Release (Win32);$(BazisLib_Library_Directory)\RELEASE;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(BazisLib_Library_Directory)\Release (Win32);$(BazisLib_Library_Directory)\RELEASE;$(VC_LibraryPath_ATL_x64);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
       <Command>
@@ -232,7 +233,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\cmdline.cpp" />
+    <ClCompile Include="..\src\command.cpp" />
+    <ClCompile Include="..\src\cthread.cpp" />
     <ClCompile Include="..\src\MainDlg.cpp" />
+    <ClCompile Include="..\src\permissions_mgr.cpp" />
     <ClCompile Include="..\src\PropertiesDlg.cpp" />
     <ClCompile Include="..\src\runassrv.cpp" />
     <ClCompile Include="..\src\srvman.cpp" />
@@ -245,7 +249,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\cmdline.h" />
+    <ClInclude Include="..\src\command.h" />
+    <ClInclude Include="..\src\cthread.h" />
+    <ClInclude Include="..\src\log.h" />
     <ClInclude Include="..\src\MainDlg.h" />
+    <ClInclude Include="..\src\permissions_mgr.h" />
     <ClInclude Include="..\src\PropertiesDlg.h" />
     <ClInclude Include="..\src\resource.h" />
     <ClInclude Include="..\src\runassrv.h" />
@@ -272,8 +280,6 @@
   <ItemGroup>
     <ResourceCompile Include="..\src\srvman.rc" />
   </ItemGroup>
-
-
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

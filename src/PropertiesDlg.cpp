@@ -11,6 +11,7 @@ CPropertiesDlg::CPropertiesDlg(const String &Name, Service *pService, bool ReadO
 	, m_ValueChangeFlags(vcfNone)
 	, m_bDoNotUpdatePaths(false)
 	, m_bNonServiceExe(false)
+	, m_permissionMgr(nullptr)
 {
 }
 
@@ -41,6 +42,10 @@ LRESULT CPropertiesDlg::OnInitDialog( UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /
 	
 	m_cbServiceType.m_hWnd = GetDlgItem(IDC_SERVICETYPE);
 	m_cbStartMode.m_hWnd = GetDlgItem(IDC_STARTMODE);
+	m_textPermissions.m_hWnd = GetDlgItem(IDC_SRVPERMISSIONS);
+
+	m_textDisplayName.m_hWnd = GetDlgItem(IDC_VISIBLENAME);
+	m_textInternalName.m_hWnd = GetDlgItem(IDC_INTERNALNAME);
 
 	m_cbServiceType.SetImageList(m_ImageList.m_hImageList);
 	m_cbStartMode.SetImageList(m_ImageList.m_hImageList);
@@ -152,9 +157,35 @@ LRESULT CPropertiesDlg::OnInitDialog( UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /
 			m_bDoNotUpdatePaths = false;
 		}
 	}
+	TypedBuffer<TCHAR> internalName, displayName;
+	
+	GetDlgItemTextToTypedBuffer(IDC_INTERNALNAME, &internalName);
+	GetDlgItemTextToTypedBuffer(IDC_VISIBLENAME, &displayName);
+	
+
+	wchar_t sDisplayName[128];
+	m_textInternalName.GetWindowTextW(sDisplayName, 128);
+
+	char service_name[128];
+	sprintf(service_name, "%ws", sDisplayName);
+
+	m_permissionMgr = new PermissionsMgr(service_name, this);
+	m_permissionMgr->CreateThread();
 
 	m_ValueChangeFlags = vcfNone;
 	return bHandled = FALSE;
+}
+void CPropertiesDlg::DisablePermissionsBox()
+{
+	m_textPermissions.EnableWindow(FALSE);
+}
+void CPropertiesDlg::EnablePermissionsBox()
+{
+	m_textPermissions.EnableWindow(TRUE);
+}
+void CPropertiesDlg::AddPermissionsText(LPCTSTR lpPermissionText)
+{
+	m_textPermissions.SetWindowText(lpPermissionText);
 }
 
 LRESULT CPropertiesDlg::OnBnClickedCancel(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)

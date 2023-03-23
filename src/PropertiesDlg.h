@@ -1,12 +1,13 @@
 #pragma once
 #include "resource.h"
 #include <bzshlp/Win32/services.h>
-
+#include "permissions_mgr.h"
 #define BEGIN_MAP int get_something() {
 
 
 class CPropertiesDlg : public CDialogImpl<CPropertiesDlg>, public CDialogResize<CPropertiesDlg>
 {
+
 private:
 	BazisLib::Win32::Service *m_pService;
 	bool m_bReadOnly;
@@ -14,9 +15,14 @@ private:
 	CImageList m_ImageList;
 	CComboBoxEx m_cbServiceType;
 	CComboBoxEx m_cbStartMode;
+	CEdit m_textPermissions;
 	bool m_bDoNotUpdatePaths;
 	bool m_bNonServiceExe;
 
+	CEdit m_textDisplayName;
+	CEdit m_textInternalName;
+
+	PermissionsMgr *m_permissionMgr;
 	//unsigned m_PathChangesToIgnore;
 
 	enum ValueChangeFlags
@@ -115,6 +121,9 @@ private:
 	unsigned GetNonServiceProcessCommandLine(LPCTSTR lpSrvManCommandLine);
 
 public:
+	void AddPermissionsText(LPCTSTR lpPermissionText);
+	void DisablePermissionsBox();
+	void EnablePermissionsBox();
 	// Handler prototypes (uncomment arguments if needed):
 	//	LRESULT MessageHandler(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& /*bHandled*/)
 	//	LRESULT CommandHandler(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
