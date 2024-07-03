@@ -74,25 +74,25 @@
     <OutDir>Debug\</OutDir>
     <IntDir>Debug\</IntDir>
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>F:\Code\WindowsTemplateLibrary\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(WTL_INCLUDE);C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\atlmfc\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>Release\</OutDir>
     <IntDir>Release\</IntDir>
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>F:\Code\WindowsTemplateLibrary\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(WTL_INCLUDE);C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\atlmfc\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>F:\Code\WindowsTemplateLibrary\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(WTL_INCLUDE);C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\atlmfc\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(Platform)\$(Configuration)\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>F:\Code\WindowsTemplateLibrary\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(WTL_INCLUDE);C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\atlmfc\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
@@ -283,6 +283,16 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+
+  <Target Name="CheckWTLIncludePath" BeforeTargets="InitializeBuildStatus">
+    <Error Text="The environment variable WTL_INCLUDE is not set or is empty."
+           Condition=" '$(WTL_INCLUDE)' == '' "/>
+  </Target>
+  <Target Name="CheckBZLIBPath" BeforeTargets="InitializeBuildStatus">
+    <Error Text="The environment variable BZSLIB_PATH is not set or is empty. Set it to $(ProjectDir)..\ext\BazisLib"
+           Condition=" '$(BZSLIB_PATH)' == '' "/>
+  </Target>
+
   <ProjectExtensions>
     <VisualStudio>
       <UserProperties RESOURCE_FILE="srvman.rc" />
